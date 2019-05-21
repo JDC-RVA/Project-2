@@ -1,3 +1,21 @@
-.list-group-item {
-  line-height: 2.5;
+body{
+  background: lightgrey;
 }
+
+.modal{
+ max-height:100%;
+ overflow:hidden;
+}
+
+input[type="submit"]{
+  width: 100%;
+  margin-top: 50px;
+}
+.modal-close{
+  position: absolute;
+  top:10px;
+  right:10px;
+  padding:0;
+  margin:0;
+}
+
