@@ -7,7 +7,7 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-var modals = require("./public/js/modals");
+// var modals = require("./public/js/modals");
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
