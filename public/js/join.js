@@ -6,6 +6,8 @@ $(document).ready(function () {
 
         console.log("ARGGH")
 
+        
+
         var emailUser = $("#emailRegister").val().trim()
         var register = $("#userRegister").val().trim();
         var password = $("#passwordRegister").val().trim();
