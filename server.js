@@ -60,7 +60,7 @@ newsapi.v2
     // country: "us"
   })
   .then(response => {
-    console.log(response);
+    // console.log(response);
     /*
     {
       status: "ok",
