@@ -23,3 +23,7 @@ input[type="submit"]{
   margin: 25px;
  
 }
+
+.modalText {
+  opacity: .5;
+}
