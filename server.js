@@ -46,27 +46,27 @@ db.sequelize.sync(syncOptions).then(function() {
   });
 });
 
-// Connect to News API
-const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI("f040e9c3149442ae93a7d68d6e99271b");
-// To query /v2/top-headlines
-// All options passed to topHeadlines are optional, but you need to include at least one of them
-newsapi.v2
-  .topHeadlines({
-    // sources: "bbc-news,the-verge",
-    q: "bitcoin",
-    category: "business",
-    language: "en"
-    // country: "us"
-  })
-  .then(response => {
-    // console.log(response);
-    /*
-    {
-      status: "ok",
-      articles: [...]
-    }
-  */
-  });
+// // Connect to News API
+// const NewsAPI = require("newsapi");
+// const newsapi = new NewsAPI("f040e9c3149442ae93a7d68d6e99271b");
+// // To query /v2/top-headlines
+// // All options passed to topHeadlines are optional, but you need to include at least one of them
+// newsapi.v2
+//   .topHeadlines({
+//     // sources: "bbc-news,the-verge",
+//     q: "amazon",
+//     category: "",
+//     // language: "en"
+//     country: "us"
+//   })
+//   .then(response => {
+//     console.log(response);
+//     /*
+//     {
+//       status: "ok",
+//       articles: [...]
+//     }
+//   */
+//   });
 
 module.exports = app;

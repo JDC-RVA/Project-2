@@ -8,13 +8,13 @@ module.exports = function(app) {
     newsapi.v2
       .topHeadlines({
         // sources: "bbc-news,the-verge",
-        q: "bitcoin",
+        q: "",
         category: "business",
-        language: "en"
-        // country: "us"
+        // language: "en"
+        country: "us"
       })
       .then(response => {
-        // console.log(response);
+        console.log(response);
         res.render("index", {
           newsArticles: response.articles
         });
@@ -22,14 +22,23 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
+  app.get("/:search", function(req, res) {
+    console.log(Date.now());
+    newsapi.v2
+      .everything({
+        q: req.params.search,
+        // category: "",
+        from: "2019-12-01",
+        to: "2017-12-12",
+        language: "en"
+        // country: "us"
+      })
+      .then(response => {
+        console.log(response);
+        res.render("index", {
+          newsArticles: response.articles
+        });
       });
-    });
   });
 
   // Render 404 page for any unmatched routes
