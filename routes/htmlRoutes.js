@@ -14,7 +14,7 @@ module.exports = function(app) {
         country: "us"
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         res.render("index", {
           newsArticles: response.articles
         });
@@ -34,7 +34,7 @@ module.exports = function(app) {
         // country: "us"
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         res.render("index", {
           newsArticles: response.articles
         });
