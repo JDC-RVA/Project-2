@@ -94,7 +94,15 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+// User search input
+$(document).on("keypress", function(e) {
+  var userSearch = $("#searchInput").val();
+  if (e.which == 13) {
+    console.log(userSearch);
+    window.location.replace("/" + userSearch);
+  }
+});
