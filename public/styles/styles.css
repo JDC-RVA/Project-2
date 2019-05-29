@@ -27,3 +27,13 @@ input[type="submit"]{
 .modalText {
   opacity: .5;
 }
+
+.card .far.fa-heart {
+  float: right;
+  color: red;
+}
+
+.card .fas.fa-heart {
+  float: right;
+  color: red
+}
