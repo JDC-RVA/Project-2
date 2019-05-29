@@ -1,11 +1,11 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper black">
-      <a href="#" class="brand-logo right">PROJECT 2 LOGO</a>
+      <a href="#" class="brand-logo right" id="welcomeBanner">PROJECT 2 LOGO</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="#register"><i inputfield='text' class="material-icons left">portrait</i>Create an account</a></li>
-        <li><a href="#login" class="waves-effect waves-light btn">LOGIN</a></li>
-        <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li>
+        <li><a href="#login" class=" modal-trigger waves-effect waves-light btn">LOGIN</a></li>
+                <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li>
 
         <li>
           <div class="center row">
@@ -106,14 +106,14 @@
 
       <div class="input-field">
         <i class="material-icons prefix">person</i>
-        <input type="text" id="name">
+        <input type="text" id="userName">
         <label for="name">Username</label>
       </div>
       <br>
 
       <div class="input-field">
         <i class="material-icons prefix">lock</i>
-        <input type="password" id="pass">
+        <input type="password" id="userPass">
         <label for="pass">Password</label>
       </div>
       <br>
@@ -131,7 +131,7 @@
         </form>
       </div>
       <br>
-      <input type="submit" value="Login" class="btn btn-large">
+      <input type="submit" value="Login" class="btn btn-large" id="loginButton">
     </form>
   </div>
 </div>
@@ -193,4 +193,3 @@
   </div>
 </div>
 
-<script src="/js/index.js"></script>

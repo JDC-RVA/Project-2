@@ -1,8 +1,4 @@
-$(document).ready(function () {
-
-    
-
-
+$(document).ready(function () {  
 
     $("#registerButton").on("click", function (e) {
         e.preventDefault();
