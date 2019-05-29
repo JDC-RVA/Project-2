@@ -6,24 +6,26 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 module.exports = function (app) {
   // Get all users
   app.get("/api/users", function (req, res) {
-    db.User.findAll({}).then(function (users) {
-      res.json(users);
+    db.User.findAll({}).then(function (dbUsers) {
+      res.json(dbUsers);
     });
   });
 
   //Create a new User
   app.post("/api/users", function (req, res) {
     // console.log(req.body)
-    db.User.create(req.body).then(function (createUser) {
-      res.json(createUser);
-      const msg = {
-        to: 'twood06@gmail.com',
-        from: 'twood06@gmail.com',
-        subject: 'THIS IS SO MUCH FUN!',
-        text: 'ANYTHING YOU CAN DO I CAN DO BETTER!',
-        html: '<strong>I AM BETTER</strong>',
-      };
-      sgMail.send(msg);
+    db.User.create(req.body)
+      .then(function (dbUser) {
+        const msg = {
+          to: dbUser.email,
+          from: 'twood06@gmail.com',
+          subject: 'THIS IS SO MUCH FUN!',
+          text: 'ANYTHING YOU CAN DO I CAN DO BETTER!',
+          html: '<strong>I AM BETTER</strong>',
+        };
+        
+        sgMail.send(msg);
+        res.json(dbUser);
     });
   });
 
