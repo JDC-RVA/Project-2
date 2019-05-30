@@ -3,10 +3,6 @@ $(document).ready(function () {
     $("#registerButton").on("click", function (e) {
         e.preventDefault();
 
-        console.log("ARGGH")
-
-
-
         var emailUser = $("#emailRegister").val().trim()
         var register = $("#userRegister").val().trim();
         var password = $("#passwordRegister").val().trim();
@@ -28,7 +24,6 @@ $(document).ready(function () {
             );
         } else {
             alert("WRONG")
-        }
-        
+        }        
     });
 });

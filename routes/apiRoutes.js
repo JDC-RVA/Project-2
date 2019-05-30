@@ -1,6 +1,7 @@
 var db = require("../models");
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const uuidv1 = require('uuid/v1');
 
 
 module.exports = function (app) {
@@ -23,11 +24,27 @@ module.exports = function (app) {
           text: 'ANYTHING YOU CAN DO I CAN DO BETTER!',
           html: '<strong>I AM BETTER</strong>',
         };
-        
+
         sgMail.send(msg);
         res.json(dbUser);
-    });
+      });
   });
+
+  app.get("/api/users/login", function (req, res) {
+    console.log(req.body)
+    db.User.findAll({
+      // where: {
+      //   user_id: req.body.user_id,
+      //   user_password: req.body.user_password
+      // }
+    }).then(function (dbUser) {
+      console.log("PIRATE STEVE", dbUser)
+      if(!dbUser.length){
+        res.status.send({error:"This is not a valid user."})
+      }else {
+      res.send(uuidv1());}
+    })
+  })
 
   // Delete an example by id
   app.delete("/api/users/:id", function (req, res) {
