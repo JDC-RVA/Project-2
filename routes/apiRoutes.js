@@ -24,7 +24,6 @@ module.exports = function (app) {
           text: 'ANYTHING YOU CAN DO I CAN DO BETTER!',
           html: '<strong>I AM BETTER</strong>',
         };
-
         sgMail.send(msg);
         res.json(dbUser);
       });
@@ -33,17 +32,19 @@ module.exports = function (app) {
   app.get("/api/users/login", function (req, res) {
     console.log(req.body)
     db.User.findAll({
-      // where: {
-      //   user_id: req.body.user_id,
-      //   user_password: req.body.user_password
-      // }
+      where: {
+        user_id: req.body.user_id,
+        user_password: req.body.user_password
+      }
     }).then(function (dbUser) {
+      var uuid = uuidv1()
       console.log("PIRATE STEVE", dbUser)
       if(!dbUser.length){
         res.status.send({error:"This is not a valid user."})
       }else {
-      res.send(uuidv1());}
+      res.send(uuid);}
     })
+    console.log(uuid)
   })
 
   // Delete an example by id
