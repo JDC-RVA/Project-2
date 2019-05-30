@@ -1,12 +1,7 @@
-$(document).ready(function () {
-    
+$(document).ready(function () {  
 
     $("#registerButton").on("click", function (e) {
         e.preventDefault();
-
-        console.log("ARGGH")
-
-        
 
         var emailUser = $("#emailRegister").val().trim()
         var register = $("#userRegister").val().trim();
@@ -23,13 +18,12 @@ $(document).ready(function () {
                 }
             }).then(
                 function () {
-                    console.log("created new user");
                     // Reload the page to get the updated list
                     location.reload();
                 }
             );
         } else {
             alert("WRONG")
-        }
+        }        
     });
 });

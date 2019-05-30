@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "135Knight739treE120hoRse",
+    "password": "",
     "database": "todolist",
     "host": "localhost",
     "dialect": "mysql"
