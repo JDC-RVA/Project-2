@@ -2,4 +2,6 @@
 node_modules
 npm-debug.log
 .env
-schema
+schemasendgrid.env
+sendgrid.env
+config
