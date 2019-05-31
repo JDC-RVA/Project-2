@@ -14,6 +14,8 @@ $(document).ready(function () {
         }).then(
             function (test) {
                console.log(test)
+               
+               location.reload()
             }
         ).catch(
             function(error){

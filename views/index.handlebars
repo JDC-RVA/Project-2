@@ -51,6 +51,7 @@
           <span class="card-title activator grey-text text-darken-4">{{title}}<i
               class="material-icons right">more_vert</i><i class="far fa-heart"></i></span>
           <p><a href="#">Read this article</a></p>
+          
         </div>
         {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
         <div class="card-reveal">
@@ -61,49 +62,7 @@
     </div>
   </div>
 {{/each}}
-{{#each newsArticles}}
-  <div class="col s12 m4">
-    <div class="main">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{urlToImage}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{title}}<i
-              class="material-icons right">more_vert</i></span>
-          <p><a href="#">Read article</a></p>
-        </div>
-        {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
-          <p>{{description}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-{{/each}}
-{{#each newsArticles}}
-  <div class="col s12 m4">
-    <div class="main">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{urlToImage}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">{{title}}<i
-              class="material-icons right">more_vert</i></span>
-          <p><a href="#">This is a link</a></p>
-        </div>
-        {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
-          <p>{{description}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-{{/each}}
+
 
  </div>
 
