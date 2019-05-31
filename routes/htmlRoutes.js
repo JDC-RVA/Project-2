@@ -7,10 +7,8 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     newsapi.v2
       .topHeadlines({
-        // sources: "bbc-news,the-verge",
         q: "",
         category: "",
-        // language: "en"
         country: "us",
         pageSize: 100
       })
@@ -27,14 +25,11 @@ module.exports = function(app) {
   app.get("/entertainment", function(req, res) {
     console.log(Date.now());
     newsapi.v2
-      .everything({
-        // q: req.params.search,
-        category: "entertainment",
-        from: "2019-12-01",
-        to: "2017-12-12",
-        language: "en",
+      .topHeadlines({
+        q: "",
+        category: "",
+        country: "us",
         pageSize: 100
-        // country: "us"
       })
       .then(response => {
         // console.log(response);
@@ -48,14 +43,11 @@ module.exports = function(app) {
   app.get("/sports", function(req, res) {
     console.log(Date.now());
     newsapi.v2
-      .everything({
-        // q: req.params.search,
-        category: "sports",
-        from: "2019-12-01",
-        to: "2017-12-12",
-        language: "en",
+      .topHeadlines({
+        q: "",
+        category: "",
+        country: "us",
         pageSize: 100
-        // country: "us"
       })
       .then(response => {
         // console.log(response);
