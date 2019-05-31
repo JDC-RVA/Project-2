@@ -11,12 +11,14 @@ module.exports = function(app) {
         q: "",
         category: "business",
         // language: "en"
-        country: "us"
+        country: "us",
+        pageSize: 100
       })
       .then(response => {
-        // console.log(response);
+        console.log(response);
         res.render("index", {
-          newsArticles: response.articles
+          newsArticles: response.articles,
+          newsArticlesURL: response.articles.url
         });
       });
   });
@@ -30,7 +32,8 @@ module.exports = function(app) {
         // category: "",
         from: "2019-12-01",
         to: "2017-12-12",
-        language: "en"
+        language: "en",
+        pageSize: 100
         // country: "us"
       })
       .then(response => {
