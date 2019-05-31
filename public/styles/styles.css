@@ -3,7 +3,6 @@ body{
 }
 
 .modal{
-
 }
 
 input[type="submit"]{
@@ -18,14 +17,6 @@ input[type="submit"]{
   margin:0;
 }
 
-.main{
- 
-  /* margin-top: 25px;
-  margin-bottom: 25px;
-  margin-right: 25px;
-  margin-left: 25px; */
-}
-
 .modalText {
   opacity: .5;
 }
@@ -38,4 +29,13 @@ input[type="submit"]{
 .card .fas.fa-heart {
   float: right;
   color: red
+}
+
+.card-image {
+  height: 250px;
+  overflow: hidden;
+}
+
+.card {
+  height: 400px;
 }
