@@ -39,3 +39,12 @@ input[type="submit"]{
   float: right;
   color: red
 }
+
+.card-image{
+  height: 150px; 
+  overflow: hidden;
+}
+
+.card {
+  height: 400px;
+}
