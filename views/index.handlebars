@@ -5,7 +5,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="#register"><i inputfield='text' class="material-icons left">portrait</i>Create an account</a></li>
         <li><a href="#login" class=" modal-trigger waves-effect waves-light btn">LOGIN</a></li>
-                <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li>
+        <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li>
 
         <li>
           <div class="center row">
@@ -29,9 +29,9 @@
   <div class="col s12">
     <ul class="tabs">
       <li class="tab col s3"><a href="/index" target="_self">Top News</a></li>
-      <li class="tab col s3"><a href="/sports" target="_self">Sports</a></li>
-      <li class="tab col s3"><a href="/politics" target="_self">Politics</a></li>
-      <li class="tab col s3"><a href="/favorites" target="_self">Favorites</a></li>
+      <li class="tab col s3"><a href="/category/sports" target="_self">Sports</a></li>
+      <li class="tab col s3"><a href="/category/entertainment" target="_self">Entertainment</a></li>
+      <li class="tab col s3"><a href="/category/favorites" target="_self">Favorites</a></li>
     </ul>
   </div>
 </div>
@@ -39,7 +39,7 @@
 
 
 <div class="row">
-{{#each newsArticles}}
+  {{#each newsArticles}}
   <div class="col s12 m4">
     <div class="main">
       <div class="card">
@@ -54,30 +54,30 @@
         </div>
         {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
         <div class=" card-reveal">
-              <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
-              <p>{{description}}</p>
+          <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
+          <p>{{description}}</p>
         </div>
       </div>
     </div>
   </div>
-{{/each}}
- </div>
+  {{/each}}
+</div>
 
-{{#each newsArticles}}
-      {{!-- MODAL FOR ARTICLES --}}
-        <div id="demo-modal-fixed-footer" class="modal modal-fixed-footer">
-    <div class="modal-content">
-     <h3>{{this.title}}</h3>
-     <h5>{{this.description}}</h5>
-     <p>{{this.content}}</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close btn deep-orange darken-2">Cancel</a>
-    </div>
+
+{{!-- MODALS FOR ARTICLES --}}
+<div id="demo-modal-fixed-footer" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h3>{{title}}</h3>
+    <h5>{{description}}</h5>
+    <p>{{content}}</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close btn deep-orange darken-2">Cancel</a>
   </div>
 </div>
 </div>
-{{/each}}
+
+
 
 <!-- MODAL LOGIN STRUCTURE -->
 <div id="login" class="modal ">
@@ -116,7 +116,7 @@
       </div>
       <br>
       <input type="submit" value="Login" class="btn btn-large" id="loginButton" instance.close();>
-      
+
     </form>
   </div>
 </div>
@@ -176,4 +176,3 @@
       <input type="submit" value="Register" class="btn btn-large" id="registerButton">
     </form>
   </div>
-
