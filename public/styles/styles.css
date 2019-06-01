@@ -10,7 +10,10 @@ input[type="submit"]{
   margin-top: 50px;
 }
 
-
+.card-content {
+  font-size: 14px;
+  float: top;
+}
 
 
 .modal-close{
