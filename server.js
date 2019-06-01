@@ -1,9 +1,8 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var session = require('express-session')
 var db = require("./models");
-
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -23,11 +22,23 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// app.set('trust proxy', 1) // trust first proxy
+// app.use(session({
+//   genid: function(req) {
+//     console.log(req.sessionID)
+//     return uuid() //using UUID for session ID's
+//   },
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: true },  
+// }))
+
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-var syncOptions = { force: true };
+var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

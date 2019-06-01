@@ -5,7 +5,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="#register"><i inputfield='text' class="material-icons left">portrait</i>Create an account</a></li>
         <li><a href="#login" class=" modal-trigger waves-effect waves-light btn">LOGIN</a></li>
-        <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li>
+                <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li>
 
         <li>
           <div class="center row">
@@ -38,9 +38,8 @@
 
 
 
-
-{{#each newsArticles}}
 <div class="row">
+{{#each newsArticles}}
   <div class="col s12 m4">
     <div class="main">
       <div class="card">
@@ -60,6 +59,9 @@
       </div>
     </div>
   </div>
+{{/each}}
+ </div>
+
 
   {{!-- MODALS FOR ARTICLES --}}
   <div id="demo-modal-fixed-footer" class="modal modal-fixed-footer">
@@ -72,7 +74,6 @@
       <a href="#!" class="modal-action modal-close btn deep-orange darken-2">Cancel</a>
     </div>
   </div>
-  {{/each}}
 </div>
 
 
@@ -174,4 +175,4 @@
       <input type="submit" value="Register" class="btn btn-large" id="registerButton">
     </form>
   </div>
-</div>
+
