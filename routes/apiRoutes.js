@@ -29,8 +29,8 @@ module.exports = function (app) {
       });
   });
 
-  app.get("/api/users/login", function (req, res) {
-    console.log(req.body)
+  app.post("/api/users/login", function (req, res) {
+   
     db.User.findAll({
       where: {
         user_id: req.body.user_id,
@@ -38,13 +38,13 @@ module.exports = function (app) {
       }
     }).then(function (dbUser) {
       var uuid = uuidv1()
-      console.log("PIRATE STEVE", dbUser)
+      console.log(dbUser)
       if(!dbUser.length){
-        res.status.send({error:"This is not a valid user."})
+        res.send({error:"This is not a valid user."})
       }else {
       res.send(uuid);}
     })
-    console.log(uuid)
+    
   })
 
   // Delete an example by id

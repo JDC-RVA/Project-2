@@ -5,17 +5,17 @@ $(document).ready(function () {
         var userName = $("#userName").val().trim();
         var userPass = $("#userPass").val().trim();
 
+
         $.ajax("/api/users/login", {
-            type: "GET",
+            type: "POST",
             data: {
                 user_id: userName,
                 user_password: userPass
             }
         }).then(
             function (test) {
-               console.log(test)
                
-               location.reload()
+            //    location.reload()
             }
         ).catch(
             function(error){
