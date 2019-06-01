@@ -69,4 +69,22 @@ db.sequelize.sync(syncOptions).then(function() {
 //   */
 //   });
 
+var testObject = {
+  source: [Object],
+  author: null,
+  title:
+    "Why Are Gray Whales Dying? Researchers Cut Through The Blubber For Answers - NPR",
+  description:
+    "More than 60 dead gray whales have washed up on Pacific coasts this year, the most in two decades. Researchers are trying to determine whether their food source is a problem, or climate change.",
+  url:
+    "https://www.npr.org/2019/06/01/728033320/why-are-gray-whales-dying-researchers-cut-through-the-blubber-for-answers",
+  urlToImage:
+    "https://media.npr.org/assets/img/2019/05/29/img_7664-900x600_wide-0b921f09b853e63eef221756591cf3cc5c68fda7.jpg?s=1400",
+  publishedAt: "2019-06-01T13:00:00Z",
+  content:
+    "Dr. Kathy Burek, a veterinary pathologist, slices through the blubber layer on a gray whale that was beached outside Anchorage, Alaska, earlier this month. Scientists are trying to figure out why so many gray whales are dying.\r\nNat Herz/Alaska's Energy Desk\r\n… [+5338 chars]"
+};
+
+console.log(JSON.stringify(testObject));
+
 module.exports = app;

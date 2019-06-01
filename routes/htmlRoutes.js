@@ -57,6 +57,24 @@ module.exports = function(app) {
       });
   });
 
+  // Load favorite page
+  app.get("/favorites", function(req, res) {
+    console.log(Date.now());
+    newsapi.v2
+      .topHeadlines({
+        q: "",
+        category: "",
+        country: "us",
+        pageSize: 100
+      })
+      .then(response => {
+        // console.log(response);
+        res.render("index", {
+          newsArticles: response.articles
+        });
+      });
+  });
+
   // Load user search page
   app.get("/:search", function(req, res) {
     console.log(Date.now());
