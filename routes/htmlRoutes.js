@@ -3,14 +3,12 @@ const NewsAPI = require("newsapi");
 const newsapi = new NewsAPI("f040e9c3149442ae93a7d68d6e99271b");
 
 module.exports = function(app) {
-  // Load index page
+  // Load index page displaying top news
   app.get("/", function(req, res) {
     newsapi.v2
       .topHeadlines({
-        // sources: "bbc-news,the-verge",
         q: "",
-        category: "business",
-        // language: "en"
+        category: "",
         country: "us",
         pageSize: 100
       })
@@ -23,7 +21,61 @@ module.exports = function(app) {
       });
   });
 
-  // Load example page and pass in an example by id
+  // Load entertainment page
+  app.get("/category/entertainment", function(req, res) {
+    console.log(Date.now());
+    newsapi.v2
+      .topHeadlines({
+        q: "",
+        category: "entertainment",
+        country: "us",
+        pageSize: 100
+      })
+      .then(response => {
+        // console.log(response);
+        res.render("index", {
+          newsArticles: response.articles
+        });
+      });
+  });
+
+  // Load sports page
+  app.get("/category/sports", function(req, res) {
+    console.log(Date.now());
+    newsapi.v2
+      .topHeadlines({
+        q: "",
+        category: "sports",
+        country: "us",
+        pageSize: 100
+      })
+      .then(response => {
+        // console.log(response);
+        res.render("index", {
+          newsArticles: response.articles
+        });
+      });
+  });
+
+  // Load favorite page
+  app.get("/category/favorites", function(req, res) {
+    console.log(Date.now());
+    newsapi.v2
+      .topHeadlines({
+        q: "",
+        category: "",
+        country: "us",
+        pageSize: 100
+      })
+      .then(response => {
+        // console.log(response);
+        res.render("index", {
+          newsArticles: response.articles
+        });
+      });
+  });
+
+  // Load user search page
   app.get("/:search", function(req, res) {
     console.log(Date.now());
     newsapi.v2

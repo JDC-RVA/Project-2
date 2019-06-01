@@ -9,6 +9,10 @@ input[type="submit"]{
   width: 100%;
   margin-top: 50px;
 }
+
+
+
+
 .modal-close{
   position: absolute;
   top:10px;
@@ -38,4 +42,8 @@ input[type="submit"]{
 
 .card {
   height: 400px;
+}
+
+.card-title activator grey-text text-darken-4 {
+  font-size: 55px !important;
 }
