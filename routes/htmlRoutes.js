@@ -22,12 +22,12 @@ module.exports = function(app) {
   });
 
   // Load entertainment page
-  app.get("/entertainment", function(req, res) {
+  app.get("/category/entertainment", function(req, res) {
     console.log(Date.now());
     newsapi.v2
       .topHeadlines({
         q: "",
-        category: "",
+        category: "entertainment",
         country: "us",
         pageSize: 100
       })
@@ -40,12 +40,12 @@ module.exports = function(app) {
   });
 
   // Load sports page
-  app.get("/sports", function(req, res) {
+  app.get("/category/sports", function(req, res) {
     console.log(Date.now());
     newsapi.v2
       .topHeadlines({
         q: "",
-        category: "",
+        category: "sports",
         country: "us",
         pageSize: 100
       })
@@ -58,7 +58,7 @@ module.exports = function(app) {
   });
 
   // Load favorite page
-  app.get("/favorites", function(req, res) {
+  app.get("/category/favorites", function(req, res) {
     console.log(Date.now());
     newsapi.v2
       .topHeadlines({
