@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var session = require('express-session')
+var session = require("express-session");
 var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -22,17 +22,17 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-  genid: function(req) {
-    console.log(req.sessionID)
-    return uuid() //using UUID for session ID's
-  },
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true },  
-}))
+// app.set('trust proxy', 1) // trust first proxy
+// app.use(session({
+//   genid: function(req) {
+//     console.log(req.sessionID)
+//     return uuid() //using UUID for session ID's
+//   },
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: true },
+// }))
 
 // Routes
 require("./routes/apiRoutes")(app);
@@ -79,5 +79,23 @@ db.sequelize.sync(syncOptions).then(function() {
 //     }
 //   */
 //   });
+
+var testObject = {
+  source: [Object],
+  author: null,
+  title:
+    "Why Are Gray Whales Dying? Researchers Cut Through The Blubber For Answers - NPR",
+  description:
+    "More than 60 dead gray whales have washed up on Pacific coasts this year, the most in two decades. Researchers are trying to determine whether their food source is a problem, or climate change.",
+  url:
+    "https://www.npr.org/2019/06/01/728033320/why-are-gray-whales-dying-researchers-cut-through-the-blubber-for-answers",
+  urlToImage:
+    "https://media.npr.org/assets/img/2019/05/29/img_7664-900x600_wide-0b921f09b853e63eef221756591cf3cc5c68fda7.jpg?s=1400",
+  publishedAt: "2019-06-01T13:00:00Z",
+  content:
+    "Dr. Kathy Burek, a veterinary pathologist, slices through the blubber layer on a gray whale that was beached outside Anchorage, Alaska, earlier this month. Scientists are trying to figure out why so many gray whales are dying.\r\nNat Herz/Alaska's Energy Desk\r\n… [+5338 chars]"
+};
+
+console.log(JSON.stringify(testObject));
 
 module.exports = app;
