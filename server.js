@@ -22,17 +22,17 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-  genid: function(req) {
-    console.log(req.sessionID)
-    return uuid() //using UUID for session ID's
-  },
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true },  
-}))
+// app.set('trust proxy', 1) // trust first proxy
+// app.use(session({
+//   genid: function(req) {
+//     console.log(req.sessionID)
+//     return uuid() //using UUID for session ID's
+//   },
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: true },  
+// }))
 
 // Routes
 require("./routes/apiRoutes")(app);
