@@ -39,14 +39,21 @@ input[type="submit"]{
 }
 
 .card-image {
-  height: 250px;
+  height: 175px;
   overflow: hidden;
 }
 
 .card {
-  height: 400px;
+  height: 350px;
 }
 
 .card-title activator grey-text text-darken-4 {
   font-size: 55px !important;
+}
+
+
+
+
+ .logoimg {
+background: redpx;
 }
