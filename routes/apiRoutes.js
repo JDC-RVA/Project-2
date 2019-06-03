@@ -2,11 +2,12 @@ var db = require("../models");
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const uuidv1 = require("uuid/v1");
+var passport = require("passport");
 
 module.exports = function(app) {
   // Get all users
 
-  app.post("/api/login", passport.authenticate('basic'), function (req, res) {
+  app.post("/api/login", passport.authenticate("basic"), function(req, res) {
     console.log("login");
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
@@ -15,14 +16,14 @@ module.exports = function(app) {
   });
 
   //Create a new User
-  app.post("/api/users/signup", function (req, res) {
-    console.log(req.body)
+  app.post("/api/users/signup", function(req, res) {
+    console.log(req.body);
     db.User.create({
       email: req.body.email,
       user_id: req.body.user_id,
       user_password: req.body.user_password
     })
-      .then(function () {
+      .then(function() {
         // const msg = {
         //   to: dbUser.email,
         //   from: 'twood06@gmail.com',
@@ -32,7 +33,8 @@ module.exports = function(app) {
         // };
         // sgMail.send(msg);
         res.redirect(307, "/api/login");
-      }).catch(function (err) {
+      })
+      .catch(function(err) {
         console.log(err);
         res.json(err);
       });
@@ -65,8 +67,7 @@ module.exports = function(app) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
-    }
-    else {
+    } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
@@ -77,11 +78,17 @@ module.exports = function(app) {
   });
 
   //save favorited article
-  app.post("/api/savedacticles", function(req, res) {
-    // console.log(req.body)
-    db.Article.create(req.body).then(function(dbArticle) {});
+  app.post("/api/savedarticles", function(req, res) {
+    db.Article.create(req.body).then(function(dbArticle) {
+      res.json(dbArticle);
+    });
   });
 
+  app.get("/api/savedarticles", function(req, res) {
+    db.User.findAll({}).then(function(dbArticle) {
+      res.json(dbArticle);
+    });
+  });
   // To query /v2/top-headlines
   // All options passed to topHeadlines are optional, but you need to include at least one of them
 };

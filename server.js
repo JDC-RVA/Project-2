@@ -5,6 +5,7 @@ var session = require("express-session");
 var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
+var passport = require("passport");
 
 // var modals = require("./public/js/modals");
 
@@ -12,11 +13,13 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(express.static("views/images"));
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 // Handlebars
 app.engine(
@@ -26,7 +29,6 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-
 
 // Routes
 require("./routes/apiRoutes")(app);
@@ -91,5 +93,8 @@ var testObject = {
 };
 
 console.log(JSON.stringify(testObject));
+var testObjectString = JSON.stringify(testObject);
+
+console.log(JSON.parse(testObjectString));
 
 module.exports = app;
