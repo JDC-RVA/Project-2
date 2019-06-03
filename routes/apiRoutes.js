@@ -52,11 +52,17 @@ module.exports = function(app) {
   });
 
   //save favorited article
-  app.post("/api/savedacticles", function(req, res) {
-    // console.log(req.body)
-    db.Article.create(req.body).then(function(dbArticle) {});
+  app.post("/api/savedarticles", function(req, res) {
+    db.Article.create(req.body).then(function(dbArticle) {
+      res.json(dbArticle);
+    });
   });
 
+  app.get("/api/savedarticles", function(req, res) {
+    db.User.findAll({}).then(function(dbArticle) {
+      res.json(dbArticle);
+    });
+  });
   // To query /v2/top-headlines
   // All options passed to topHeadlines are optional, but you need to include at least one of them
 };

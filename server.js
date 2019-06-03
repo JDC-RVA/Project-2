@@ -97,5 +97,8 @@ var testObject = {
 };
 
 console.log(JSON.stringify(testObject));
+var testObjectString = JSON.stringify(testObject);
+
+console.log(JSON.parse(testObjectString));
 
 module.exports = app;
