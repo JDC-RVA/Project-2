@@ -22,8 +22,6 @@
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li><a href="" class="dropdown-button" data-activates="dropdown1">Sign In / Sign Up<i
                 class="material-icons right">arrow_drop_down</i></a></li>
-
-
           <li>
             <div class="searchCenter">
               <div class="col s12">
@@ -37,26 +35,16 @@
             </div>
           </li>
 
-
-
-
-
           <a href="" class="brand-logo right"><img src="https://i.ibb.co/CBrD1cG/newsify.png" style="height:80px; alt="
               newsify"></a>
 
 
         </ul>
 
-
-
-
         {{!-- <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li> --}}
-
         {{!-- <li>
           <img class="logo" id="logo"> <a href="/index"><img src="https://i.ibb.co/CBrD1cG/newsify.png"  style="height:80px;" alt="newsify"></a></img>
         </li> --}}
-
-
       </ul>
     </div>
   </nav>
@@ -64,19 +52,18 @@
 
 
 
-{{!-- ----------------  TABS --------------------------- --}}
 <div class="row">
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s3"><a href="/index">Top News</a></li>
-      <li class="tab col s3"><a href="/sports">Sports</a></li>
-      <li class="tab col s3"><a href="/entertainment">Entertainment</a></li>
-      <li class="tab col s3"><a href="/favorites">Favorites</a></li>
+      <li class="tab col s3"><a href="/index" target="_self">Top News</a></li>
+      <li class="tab col s3"><a href="/category/sports" target="_self"> Sports</a></li>
+      <li class="tab col s3"><a href="/category/entertainment" target="_self">Entertainment</a></li>
+      <li class="tab col s3"><a href="/category/favorites" target="_self">Favorites</a></li>
     </ul>
   </div>
 </div>
 
-{{!-- INDEX CARDS --}}
+
 <div id="index" class="col s12">
   <div class="row">
     {{#each newsArticles}}
@@ -89,7 +76,7 @@
           <div class="card-content">
             <i class=" close material-icons right white-text">close</i>
             <span class="card-title activator grey-text text-darken-4">{{title}}<i class="far fa-heart"></i></span>
-            <p><a target="blank" href="#demo-modal-fixed-footer">Read Article</a></p>
+            <p><a target="blank" href="{{url}}">Read Article</a></p>
 
           </div>
           {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
@@ -106,7 +93,7 @@
 
 
 {{!-- SPORTS CARDS --}}
-<div id="sports" class="col s12">
+<div id="sports" class="col s12"> <a href="/category/sports">Sports</a>
   <div class="row">
     {{#each newsArticles}}
     <div class="col s12 m4">
@@ -161,8 +148,6 @@
   </div>
 
 </div>
-
-
 <div id="favorites" class="col s12"></div>
 </div>
 
@@ -178,7 +163,7 @@
         <div class="card-content">
           <i class=" close material-icons right white-text">close</i>
           <span class="card-title activator grey-text text-darken-4">{{title}}<i class="far fa-heart"></i></span>
-          <p><a target="blank" href="#demo-modal-fixed-footer">Read Article</a></p>
+          <p><a target="blank" href="{{url}}">Read Article</a></p>
         </div>
         {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
         <div class=" card-reveal">
@@ -197,7 +182,7 @@
 
 
 
-{{!-- MODALS FOR ARTICLES --}}
+{{!-- MODALS FOR ARTICLES
 <div id="demo-modal-fixed-footer" class="modal modal-fixed-footer">
   <div class="modal-content">
     <h3>{{title}}</h3>
@@ -208,7 +193,7 @@
     <a href="#!" class="modal-action modal-close btn deep-orange darken-2">Cancel</a>
   </div>
 </div>
-</div>
+</div> --}}
 
 
 
