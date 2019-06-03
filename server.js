@@ -13,6 +13,7 @@ var passport = require("passport");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(express.static("views/images"));
 
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })

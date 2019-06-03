@@ -3,6 +3,7 @@ body{
 }
 
 .modal{
+  
 }
 
 input[type="submit"]{
@@ -10,8 +11,10 @@ input[type="submit"]{
   margin-top: 50px;
 }
 
-
-
+.card-content {
+  font-size: 14px;
+  float: top;
+}
 
 .modal-close{
   position: absolute;
@@ -41,9 +44,13 @@ input[type="submit"]{
 }
 
 .card {
-  height: 400px;
+  height: 350px;
 }
 
 .card-title activator grey-text text-darken-4 {
   font-size: 55px !important;
+}
+
+ .logoimg {
+background: redpx;
 }
