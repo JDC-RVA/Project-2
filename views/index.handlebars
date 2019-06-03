@@ -1,172 +1,43 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper black">
-
+      <a href="/index" class="brand-logo right" id="welcomeBanner">PROJECT 2 LOGO</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="#register"><i inputfield='text' class="material-icons left">portrait</i>Create an account</a></li>
+        <li><a href="#login" class=" modal-trigger waves-effect waves-light btn">LOGIN</a></li>
+        <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li>
 
-        <a href="/index" class="brand-logo center" id="welcomeBanner">Get your daily news.</a>
-
-        {{!-- <li><a href="#register"><i inputfield='text' class="material-icons left">portrait</i>Create an account</a></li>
-        <li><a href="#login" class=" modal-trigger waves-effect waves-light btn">LOGIN</a></li> --}}
-
-
-        <!-- DROPDOWN ITEMS -->
-        <ul id="dropdown1" class="dropdown-content">
-          <li><a href="#login">Login</a></li>
-          <li><a href="#register">Sign Up</a></li>
-          <li class="divider"></li>
-          <li><a href="#!">Log Out</a></li>
-        </ul>
-
-        {{!-- SIGN IN DROP DOWN BUTTON --}}
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <li><a href="" class="dropdown-button" data-activates="dropdown1">Sign In / Sign Up<i
-                class="material-icons right">arrow_drop_down</i></a></li>
-
-
-          <li>
-            <div class="searchCenter">
-              <div class="col s12">
-                <div class="row" id="search">
-                  <div class="input-field col black-text">
-                    <i class="red-text material-icons prefix">search</i>
-                    <input type="search" placeholder="search" id="searchInput">
-                  </div>
+        <li>
+          <div class="center row">
+            <div class="col s12">
+              <div class="row" id="search">
+                <div class="input-field col s6 s12 red-text">
+                  <i class="red-text material-icons prefix">search</i>
+                  <input type="text" placeholder="search" id="searchInput" class="autocomplete red-text">
                 </div>
               </div>
             </div>
-          </li>
-
-
-
-
-
-          <a href="" class="brand-logo right"><img src="https://i.ibb.co/CBrD1cG/newsify.png" style="height:80px; alt="
-              newsify"></a>
-
-
-        </ul>
-
-
-
-
-        {{!-- <li><a href="#logoff" class="waves-effect waves-light btn">LOG OFF</a></li> --}}
-
-        {{!-- <li>
-          <img class="logo" id="logo"> <a href="/index"><img src="https://i.ibb.co/CBrD1cG/newsify.png"  style="height:80px;" alt="newsify"></a></img>
-        </li> --}}
-
-
+          </div>
+        </li>
       </ul>
     </div>
   </nav>
 </div>
 
-
-
 {{!-- ----------------  TABS --------------------------- --}}
 <div class="row">
   <div class="col s12">
-    <ul class="tabs">
-      <li class="tab col s3"><a href="/index">Top News</a></li>
-      <li class="tab col s3"><a href="/sports">Sports</a></li>
-      <li class="tab col s3"><a href="/entertainment">Entertainment</a></li>
-      <li class="tab col s3"><a href="/favorites">Favorites</a></li>
+    <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+      <li class="tab col s3"><a href="/index" target="_self">Top News</a></li>
+      <li class="tab col s3"><a href="/category/sports" target="_self">Sports</a></li>
+      <li class="tab col s3"><a href="/category/entertainment" target="_self">Entertainment</a></li>
+      <li class="tab col s3"><a href="/category/favorites" target="_self">Favorites</a></li>
     </ul>
   </div>
 </div>
 
-{{!-- INDEX CARDS --}}
-<div id="index" class="col s12">
-  <div class="row">
-    {{#each newsArticles}}
-    <div class="col s12 m4">
-      <div class="main">
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{urlToImage}}">
-          </div>
-          <div class="card-content">
-            <i class=" close material-icons right white-text">close</i>
-            <span class="card-title activator grey-text text-darken-4">{{title}}<i class="far fa-heart"></i></span>
-            <p><a target="blank" href="#demo-modal-fixed-footer">Read Article</a></p>
-
-          </div>
-          {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
-          <div class=" card-reveal">
-            <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
-            <p>{{description}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-</div>
 
 
-{{!-- SPORTS CARDS --}}
-<div id="sports" class="col s12">
-  <div class="row">
-    {{#each newsArticles}}
-    <div class="col s12 m4">
-      <div class="main">
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{urlToImage}}">
-          </div>
-          <div class="card-content">
-            <i class=" close material-icons right white-text">close</i>
-            <span class="card-title activator grey-text text-darken-4">{{title}}<i class="far fa-heart"></i></span>
-            <p><a target="blank" href="#demo-modal-fixed-footer">Read Article</a></p>
-
-          </div>
-          {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
-          <div class=" card-reveal">
-            <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
-            <p>{{description}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-</div>
-
-{{!-- Entertainment Cards --}}
-<div id="entertainment" class="col s12">
-  <div class="row">
-    {{#each newsArticles}}
-    <div class="col s12 m4">
-      <div class="main">
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{urlToImage}}">
-          </div>
-          <div class="card-content">
-            <i class=" close material-icons right white-text">close</i>
-            <span class="card-title activator grey-text text-darken-4">{{title}}<i class="far fa-heart"></i></span>
-            <p><a target="blank" href="#demo-modal-fixed-footer">Read Article</a></p>
-
-          </div>
-          {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
-          <div class=" card-reveal">
-            <span class="card-title grey-text text-darken-4">{{title}}<i class="material-icons right">close</i></span>
-            <p>{{description}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-
-</div>
-
-
-<div id="favorites" class="col s12"></div>
-</div>
-
-{{!-- CARDS --}}
 <div class="row">
   {{#each newsArticles}}
   <div class="col s12 m4">
@@ -178,7 +49,8 @@
         <div class="card-content">
           <i class=" close material-icons right white-text">close</i>
           <span class="card-title activator grey-text text-darken-4">{{title}}<i class="far fa-heart"></i></span>
-          <p><a target="blank" href="#demo-modal-fixed-footer">Read Article</a></p>
+          {{!-- <p><a target="blank" href="#demo-modal-fixed-footer">Read Article</a></p> --}}
+          <p><a target="_blank" href="{{url}}">Go To Article</a></p>
         </div>
         {{!-- Here is some more information about this product that is only revealed once clicked on. --}}
         <div class=" card-reveal">
@@ -190,11 +62,6 @@
   </div>
   {{/each}}
 </div>
-
-
-
-
-
 
 
 {{!-- MODALS FOR ARTICLES --}}
@@ -209,9 +76,6 @@
   </div>
 </div>
 </div>
-
-
-
 
 
 
