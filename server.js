@@ -13,6 +13,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // Handlebars
 app.engine(
   "handlebars",
@@ -22,17 +27,6 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// app.set('trust proxy', 1) // trust first proxy
-// app.use(session({
-//   genid: function(req) {
-//     console.log(req.sessionID)
-//     return uuid() //using UUID for session ID's
-//   },
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: { secure: true },
-// }))
 
 // Routes
 require("./routes/apiRoutes")(app);

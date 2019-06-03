@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $("#logOff").on("click", function (e) {
        
-        $.ajax("/api/users/:id", {
+        $.ajax("/api/logout", {
             type: "POST",
             data: {
                 user_id: userName,
@@ -16,6 +16,5 @@ $(document).ready(function () {
                 console.log(error)
             }
         )
-        $("#welcomeBanner").text(`Project 2 Logo`)
     })
 });
