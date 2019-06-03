@@ -3,6 +3,7 @@ body{
 }
 
 .modal{
+  
 }
 
 input[type="submit"]{
@@ -14,7 +15,6 @@ input[type="submit"]{
   font-size: 14px;
   float: top;
 }
-
 
 .modal-close{
   position: absolute;
@@ -50,9 +50,6 @@ input[type="submit"]{
 .card-title activator grey-text text-darken-4 {
   font-size: 55px !important;
 }
-
-
-
 
  .logoimg {
 background: redpx;

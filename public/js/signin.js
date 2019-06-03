@@ -1,31 +1,32 @@
 $(document).ready(function () {
+
+    var userName = $("input#userName")
+    var userPass = $("input#userPass")
+
     $("#loginButton").on("click", function (e) {
         e.preventDefault();
 
-        var userName = $("#userName").val().trim();
-        var userPass = $("#userPass").val().trim();
+        var userData = {
+            user: userName.val().trim(),
+            password: userPass.val().trim()
+        };
 
+        if (!userData.user || !userData.password) {
+            return;
+        }
 
-        $.ajax("/api/users/login", {
-            type: "POST",
-            data: {
-                user_id: userName,
-                user_password: userPass
-            }
-        }).then(
-            function (test) {
-               
-            //    location.reload()
-            }
-        ).catch(
-            function(error){
-                console.log(error)
-            }
-        )
-        $("#welcomeBanner").text(`Welcome, ${userName}`)
+        loginUser(userData.user, userData.password);
     })
+
+    function loginUser(user, password) {
+        $.post("/api/login", {
+            user_id: user,
+            user_password: password
+        }).then(function (data) {
+            window.location.replace(data);
+            // If there's an error, log the error
+        }).catch(function (err) {
+            console.log(err);
+        });
+    }
 });
-
-
-
-
