@@ -1,29 +1,38 @@
-$(document).ready(function () {  
+$(document).ready(function () {
+
+    var emailUser = $("input#emailRegister")
+    var registerUser = $("input#userRegister")
+    var passwordUser = $("input#passwordRegister")
+    var verifyPass = $("input#passVerify")
 
     $("#registerButton").on("click", function (e) {
         e.preventDefault();
 
-        var emailUser = $("#emailRegister").val().trim()
-        var register = $("#userRegister").val().trim();
-        var password = $("#passwordRegister").val().trim();
-        var verifyPass = $("#passVerify").val().trim()
+        var userData = {
+            email: emailUser.val().trim(),
+            user: registerUser.val().trim(),
+            password: passwordUser.val().trim(),
+        };
 
-        if (password === verifyPass) {
-            $.ajax("/api/users", {
-                type: "POST",
-                data: {
-                    email: emailUser,
-                    user_id: register,
-                    user_password: password
-                }
-            }).then(
-                function () {
-                    // Reload the page to get the updated list
-                    location.reload();
-                }
-            );
+        if (!userData.email || !userData.user || !userData.password) {
+            return;
+        }
+        
+        if (verifyPass.val() === passwordUser.val()) {            
+            signUpUser(userData.email, userData.user, userData.password);
         } else {
-            alert("WRONG")
-        }        
+            alert("wrong")
+        }
+
+        function signUpUser(email, user, password) {
+
+            $.post("/api/users/signup", {
+                email: email,
+                user_id: user,
+                user_password: password
+            }).then(function (data) {
+                window.location.replace(data);
+            })
+        }
     });
 });
